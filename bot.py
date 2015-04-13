@@ -101,34 +101,42 @@ def get_readme_content(contents):
 
 
 def file_is_license(contents_obj):
-    '''Return True iff passed Github content is a license file
+    '''Return True if passed Github content is a license file
 
     Arguments:
         contents_obj: One dict as returned from repo content
     '''
+	is_found = -1
     file_name = contents_obj['name'].lower()
     for valid_name in LICENSE_FILE_NAMES:
         if file_name.startswith(valid_name):
-            return True
+            return file_has_GPL(file_name);
     return False
 
 
-def readme_has_license(readme_obj):
-    '''Return True iff the passed content obj has "license" in content.
+def file_has_GPL(file_obj):
+    '''Return True if the passed content object has "GNU" in content.
 
-    readme_obj: One dict as returned from repo content which is the readme
+    file_obj: One dict as returned from repo content which is the file being probed
     '''
     logger.debug('Checking README: %s' % readme_obj)
-    if readme_obj is None:
+    if file_obj is None:
         return False
 
-    file_content_endpoint = readme_obj['url'].split(config.github['base_url'])[1]
+    file_content_endpoint = file_obj['url'].split(config.github['base_url'])[1]
     headers = {'Accept': 'application/vnd.github.v3.raw'}
 
-    readme_content = make_request(file_content_endpoint, headers=headers,
+    file_content = make_request(file_content_endpoint, headers=headers,
                                   text=True)
-    readme_content = readme_content.lower()
-    return readme_content.find("license") > -1
+    file_content = file_content.lower()
+	
+	is_found = -1
+	
+	is_found = file_content.find("GNU General Public License");
+	
+	is_found = file_content.find("GPL");
+	
+    return is_found > -1
 
 
 def get_search_results():
@@ -211,7 +219,7 @@ def main():
 
         logger.info('Readme file: %s' % readme_content_obj.get('name'))
 
-        if readme_has_license(readme_content_obj):
+        if file_has_GPL(readme_content_obj):
             # Has a license, log in db and skip
             row = table.insert(dict(repo_id=repo['id'],
                                     repo_name=repo['name'],
@@ -219,9 +227,9 @@ def main():
                                     has_license=True,
                                     license_file=readme_content_obj['name'],
                                     raw_repo_dump=json.dumps(repo)))
-            logger.info('Readme has license. Saved in db, row=%s' % str(row))
+            logger.info('Readme has GPL. Saved in db, row=%s' % str(row))
         else:
-            logger.info('License not found. Creating issue.')
+            logger.info('GPL not found. Creating issue.')
             # Create an issue and log it in the database
             result = create_issue(repo['full_name'])
             issue_url = result.get('html_url', None)

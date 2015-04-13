@@ -15,20 +15,26 @@ db = dict(
 
 issue = dict(
     titles = [
-        'Please add a license',
-        'License missing from repo',
-        'Project is not open source without a license file',
-        'Add a license file'
+        'Please free this software',
+        'GPL missing from repo',
+        'Project is not free as in freedom',
+        'Add the GPL'
     ],
     body = [
-        ('Without a license, this project isn\'t open source and no one can '
+        ('Without the GPL, this project isn\'t free as in freedom and no one can '
          'use the code.'),
-        ('This repo is missing a license. Without a license, all code is '
-         'copyright the author and may not be used by anyone else.')
+        ('This repo is missing the GNU General Public License. Without the GPL, all code is '
+         'copyright the author and may not be used by anyone else.'),
+		('I\'d just like to interject for a moment.'
+		 '\n\nWhat you\'re referring to as Linux, is in fact, GNU/Linux, '
+		  'or as I\'ve recently taken to calling it, GNU plus Linux. Linux '
+		  'is not an operating system unto itself, but rather another free component '
+		  'of a fully functioning GNU system made useful by the GNU corelibs, shell '
+		  'utilities and vital system components comprising a full OS as defined by POSIX.')
     ],
-    call_to_action = ('Please use something like http://choosealicense.com/ '
-                      'to decide what license to use. I recommend MIT or GPL.'
+    call_to_action = ('Please switch to the GPL and elminate all non-free code '
+					  'as soon as possible.'
                       '\n\n'
-                      'A PSA called [**Add a License Please**]'
-                      '(https://github.com/karan/add-a-license-please)')
+                      'A PSA called [**Free Your Software Please!**]'
+                      '(https://www.gnu.org/gnu/manifesto.html)')
 )

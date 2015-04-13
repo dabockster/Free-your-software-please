@@ -119,8 +119,8 @@ class TestBotMethods(unittest.TestCase):
 
 
     def test_readme_has_license(self):
-        self.assertTrue(bot.readme_has_license(readme_with_license))
-        self.assertFalse(bot.readme_has_license(readme_without_license))
+        self.assertTrue(bot.readme_has_GNU(readme_with_license))
+        self.assertFalse(bot.readme_has_GNU(readme_without_license))
 
 
 if __name__ == '__main__':
