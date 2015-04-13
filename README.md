@@ -1,26 +1,28 @@
-# Add a License Please
+# Free Your Software Please!
 
-A bot that crawls Github for projects without any license, and asks the owner to add a license.
+(Forked from [https://github.com/karan/add-a-license-please](https://github.com/karan/add-a-license-please))
 
-![](https://raw.githubusercontent.com/karan/add-a-license-please/master/logo.jpg)
+A bot that crawls Github for projects with freedom denying licenses, and asks them to respect the freedoms of others.
 
-Github is full of "open source" project that carry no explicit license. This bot will create an issue in repositories that are missing a license.
+![](http://i.imgur.com/1eIBvfv.jpg)
+
+Github is full of "open source" projects that carry freedom denying licenses. This bot will create an issue in repositories that are not using the GPL.
 
 ### Why include a license?
 
 > Generally speaking, the absence of a license means that the default copyright laws apply. This means that you retain all rights to your source code and that nobody else may reproduce, distribute, or create derivative works from your work. This might not be what you intend.
 
+### Why include the GPL?
+
+> Gernally speaking, the absence of the GPL means that the project is using a license that does not respect the freedoms of anyone who uses its code to its full potential amount of freedom. This means that you still retain some rights to your source code that can impact the reproduction, distribution, and derivative works that come from others using your work as a base. Hence, most non-GPL licenses detract from the freedoms of both you and anyone who uses your software. This may not be what you intend.
+
 Source: https://help.github.com/articles/open-source-licensing/
 
 ### How does it work?
 
-The bot searches Github for repositories that have some stars (although the star restriction is a bit wonky). For the returned repos, it will check to see existence of any license information. If it's missing, it will create an issue in the repo. Simple!
+The bot searches Github for repositories that have some stars (although the star restriction is a bit wonky). For the returned repos, it will check to see existence of any license information. If the GPL is missing, it will create an issue in the repo. Simple!
 
 All repositories that are processed (skipped or issue created) are saved in a sqlite3 database. This is done to prevent double scanning the same repository.
-
-### Where is this bot running?
-
-Currently I'm running this bot on a 1GB [DigitalOcean](https://www.digitalocean.com/?refcode=422889a8186d) instance (yes, that's an affiliate link. Use that to get free VPS for 2 months). The bot is low of resources and uses a couple dozen MB of RAM.
 
 ### Running
 
