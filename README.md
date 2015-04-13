@@ -16,7 +16,7 @@ Github is full of "open source" projects that carry freedom denying licenses. Th
 
 > Gernally speaking, the absence of the GPL means that the project is using a license that does not respect the freedoms of anyone who uses its code to its full potential amount of freedom. This means that you still retain some rights to your source code that can impact the reproduction, distribution, and derivative works that come from others using your work as a base. Hence, most non-GPL licenses detract from the freedoms of both you and anyone who uses your software. This may not be what you intend.
 
-Source: https://help.github.com/articles/open-source-licensing/
+Source: https://www.gnu.org/licenses/gpl-faq.html
 
 ![](http://i.imgur.com/1eIBvfv.jpg)
 
